@@ -4,6 +4,7 @@ module EnvReplacer
   module Adapters
     # for using the credstash gem TODO
     class Credstash
+      URL_SCHEME = 'credstash'
       class << self
         def load_environment
           raise NotImplementedError

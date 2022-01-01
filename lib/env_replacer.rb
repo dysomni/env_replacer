@@ -6,10 +6,10 @@ require_relative 'env_replacer/adapters'
 # for modifying the ENV
 module EnvReplacer
   class << self
-    def match(url_protocol)
+    def match(url_scheme)
       ENV.each do |key, value|
-        if value.match(%r{#{url_protocol}://})
-          path = value.match(%r{#{url_protocol}://(.+)})[1].split('/')
+        if value.match(%r{#{url_scheme}://})
+          path = value.match(%r{#{url_scheme}://(.+)})[1].split('/')
           ENV[key] = yield path
         end
       end
