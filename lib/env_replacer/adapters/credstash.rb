@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module EnvReplacer
   module Adapters
     class Credstash
