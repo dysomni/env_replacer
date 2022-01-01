@@ -1,5 +1,5 @@
-class EnvReplacer
-  class Adapters
+module EnvReplacer
+  module Adapters
     class OnePassword
       class << self
         def load_environment

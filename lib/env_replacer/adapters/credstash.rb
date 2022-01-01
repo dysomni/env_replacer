@@ -1,5 +1,5 @@
-class EnvReplacer
-  class Adapters
+module EnvReplacer
+  module Adapters
     class Credstash
       class << self
         def load_environment

@@ -3,7 +3,7 @@
 require_relative 'env_replacer/version'
 require_relative 'env_replacer/adapters'
 
-class EnvReplacer
+module EnvReplacer
   class << self
     def match(url_protocol, &block)
       ENV.each do |key, value|
