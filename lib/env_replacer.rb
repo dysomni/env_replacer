@@ -3,6 +3,7 @@
 require_relative 'env_replacer/version'
 require_relative 'env_replacer/adapters'
 
+# for modifying the ENV
 module EnvReplacer
   class << self
     def match(url_protocol)

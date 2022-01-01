@@ -2,6 +2,7 @@
 
 module EnvReplacer
   module Adapters
+    # to use 1Password, only helpful for local development environments
     class OnePassword
       class << self
         def load_environment

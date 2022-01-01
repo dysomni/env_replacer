@@ -2,6 +2,7 @@
 
 module EnvReplacer
   module Adapters
+    # uses AWS parameter store, a sub service of aws system manager
     class ParameterStore
       class << self
         def load_environment
