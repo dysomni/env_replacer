@@ -9,6 +9,10 @@ module EnvReplacer
         def load_environment
           raise NotImplementedError
         end
+
+        def needed?
+          Environment.any_match?(URL_SCHEME)
+        end
       end
     end
   end

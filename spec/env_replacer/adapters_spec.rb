@@ -17,9 +17,15 @@ RSpec.describe EnvReplacer::Adapters do
     end
   end
 
-  it 'each has load_environment' do
+  it 'each has #load_environment' do
     adapter_klasses.each do |klass|
       expect(klass.respond_to?(:load_environment)).to be true
+    end
+  end
+
+  it 'each has #needed?' do
+    adapter_klasses.each do |klass|
+      expect(klass.respond_to?(:needed?)).to be true
     end
   end
 end
