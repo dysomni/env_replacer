@@ -9,7 +9,6 @@ module EnvReplacer
   class << self
     def load(*adapters)
       adapters.each do |adapter|
-        puts "about to load env #{adapter}"
         ADAPTERS_DICT[adapter].load_environment
       end
     end
