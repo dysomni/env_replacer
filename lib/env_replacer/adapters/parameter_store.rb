@@ -7,9 +7,13 @@ module EnvReplacer
       URL_SCHEME = 'ps'
       class << self
         def load_environment
+          puts "load env in parameterstore"
           require 'aws-sdk'
+          puts "required aws-sdk"
           @ssm = Aws::SSM::Client.new
+          puts "created ssm client"
           Environment.match(URL_SCHEME) do |path|
+            puts "get param for #{path.join('/')}"
             @ssm.get_parameter(name: "/#{path.join('/')}", with_decryption: true).parameter.value
           end
         end
