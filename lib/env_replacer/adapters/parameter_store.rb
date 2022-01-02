@@ -13,9 +13,9 @@ module EnvReplacer
           @ssm = Aws::SSM::Client.new
           matches = Environment.matches(URL_SCHEME)
           results = Parallel.map(matches, in_threads: 5) do |key, path|
-            [key, @ssm.get_parameter(name: "/#{path.join('/')}", with_decryption: true).parameter.value]
+            ENV[key] = @ssm.get_parameter(name: "/#{path.join('/')}", with_decryption: true).parameter.value
           end
-          results.each { |key, value| ENV[key] = value }
+          # results.each { |key, value| ENV[key] = value }
           true
         end
 
