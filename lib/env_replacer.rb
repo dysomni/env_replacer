@@ -6,7 +6,10 @@ require_relative 'env_replacer/environment'
 
 # for modifying the ENV
 module EnvReplacer
+  @threads = 10
   class << self
+    attr_accessor :threads
+
     def load(*adapters)
       adapters.each do |adapter|
         ADAPTERS_DICT[adapter].load_environment
