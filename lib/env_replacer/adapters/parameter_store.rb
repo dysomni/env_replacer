@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'parallel'
+
 module EnvReplacer
   module Adapters
     # uses AWS parameter store, a sub service of aws system manager
