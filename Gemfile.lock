@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     env_replacer (0.1.0)
+      parallel
 
 GEM
   remote: https://rubygems.org/

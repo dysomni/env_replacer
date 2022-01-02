@@ -9,9 +9,12 @@ module EnvReplacer
         def load_environment
           require 'aws-sdk'
           @ssm = Aws::SSM::Client.new
-          Environment.match(URL_SCHEME) do |path|
-            @ssm.get_parameter(name: "/#{path.join('/')}", with_decryption: true).parameter.value
+          matches = Environment.matches(URL_SCHEME)
+          results = Parallel.map(matches, in_threads: 5) do |key, path|
+            [key, @ssm.get_parameter(name: "/#{path.join('/')}", with_decryption: true).parameter.value]
           end
+          results.each { |key, value| ENV[key] = value }
+          true
         end
 
         def needed?
